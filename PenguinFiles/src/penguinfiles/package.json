@@ -10,6 +10,7 @@
     "lint": "eslint --ext .js,.vue src"
   },
   "dependencies": {
+    "keen-ui": "^0.8.9",
     "skeleton-css": "^2.0.4",
     "vue": "^2.0.1"
   },

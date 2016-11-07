@@ -1,6 +1,11 @@
 import Vue from 'vue'
 import App from './App'
 
+// UI
+import Keen from 'keen-ui'
+
+Vue.use(Keen)
+
 // Styles
 import './assets/styles/global.css'
 import 'skeleton-css/css/normalize.css'
