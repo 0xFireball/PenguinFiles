@@ -1,17 +1,29 @@
 <template>
-  <div id="app">
-    <img src="./assets/logo.png" width="240" height="240">
-    <intro></intro>
+  <div class="container">
+    <div id="app">
+      <div class="row">
+        <div class="twelve columns">
+          <intro></intro>
+        </div>
+      </div>
+      <div class="row">
+        <div class="twelve columns">
+          <login></login>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
 import Intro from './components/Intro'
+import Login from './components/Login'
 
 export default {
   name: 'app',
   components: {
-    Intro
+    Intro,
+    Login
   }
 }
 </script>
@@ -20,7 +32,6 @@ export default {
   #app {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    text-align: center;
     color: #2c3e50;
     margin-top: 60px;
   }

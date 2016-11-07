@@ -1,7 +1,8 @@
 <template>
   <div class="hello">
+    <img src="../assets/logo.png" width="240" height="240">
     <h1>{{ msg }}</h1>
-    <h5><a href="https://github.com/0xFireball/PenguinFiles" target="_blank">PenguinFiles on GitHub</a></h5>
+    <h6><a href="https://github.com/0xFireball/PenguinFiles" target="_blank">PenguinFiles on GitHub</a></h6>
   </div>
 </template>
 
@@ -18,6 +19,10 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+  .hello {
+    text-align: center;
+  }
+  
   h1,
   h2 {
     font-weight: normal;
