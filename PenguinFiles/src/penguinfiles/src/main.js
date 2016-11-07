@@ -1,9 +1,11 @@
 import Vue from 'vue'
 import App from './App'
-
+import VueRouter from 'vue-router'
 // UI
 import Keen from 'keen-ui'
 
+// Register plugins
+Vue.use(VueRouter)
 Vue.use(Keen)
 
 // Styles

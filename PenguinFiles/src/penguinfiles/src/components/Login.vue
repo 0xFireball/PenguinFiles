@@ -1,6 +1,24 @@
 <template>
   <div class="login">
     <h3>Log In / Sign Up</h3>
+    <ui-tabs type="text">
+      <ui-tab header="Books">
+        My books
+        <a href="https://google.com" target="_blank" rel="noopener">Hey</a>
+      </ui-tab>
+
+      <ui-tab header="Authors">
+        Authors
+      </ui-tab>
+
+      <ui-tab header="Collections">
+        My collections
+      </ui-tab>
+
+      <ui-tab header="Favourites">
+        My favourites
+      </ui-tab>
+    </ui-tabs>
     <form v-on:submit.prevent="tryLogin">
       <div class="row">
         <div class="six columns">
