@@ -1,7 +1,7 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
-    <h2>Essential Links</h2>
+    <h5><a href="https://github.com/0xFireball/PenguinFiles" target="_blank">PenguinFiles on GitHub</a></h5>
   </div>
 </template>
 
