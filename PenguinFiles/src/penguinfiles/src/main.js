@@ -1,17 +1,21 @@
 import Vue from 'vue'
 import App from './App'
 import VueRouter from 'vue-router'
+
 // UI
-import Keen from 'keen-ui'
+import VueMaterial from 'vue-material'
+import 'vue-material/dist/vue-material.css'
+
 
 // Register plugins
 Vue.use(VueRouter)
-Vue.use(Keen)
+Vue.use(VueMaterial)
 
 // Styles
 import './assets/styles/global.css'
 import 'skeleton-css/css/normalize.css'
 import 'skeleton-css/css/skeleton.css'
+import 'keen-ui/dist/keen-ui.css'
 
 /* eslint-disable no-new */
 new Vue({
