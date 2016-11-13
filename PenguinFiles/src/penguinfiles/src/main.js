@@ -6,7 +6,6 @@ import VueRouter from 'vue-router'
 import './assets/styles/global.css'
 import 'skeleton-css/css/normalize.css'
 import 'skeleton-css/css/skeleton.css'
-import 'keen-ui/dist/keen-ui.css'
 
 // UI
 import VueMaterial from 'vue-material'
