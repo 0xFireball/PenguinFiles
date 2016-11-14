@@ -2,7 +2,7 @@
   <div v-md-theme="'apptheme'">
     <toolbar></toolbar>
     <div id="app" class="container">
-      <div class="row">
+      <div class="row" id="intro-area">
         <div class="twelve columns">
           <intro></intro>
         </div>
@@ -41,6 +41,10 @@ export default {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     color: #2c3e50;
+  }
+
+  #intro-area {
+    margin-top: 5%;
   }
   
   #footer {
