@@ -16,6 +16,11 @@ import 'vue-material/dist/vue-material.css'
 Vue.use(VueRouter)
 Vue.use(VueMaterial)
 
+Vue.material.theme.register('apptheme', {
+  primary: 'cyan',
+  accent: 'pink'
+})
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

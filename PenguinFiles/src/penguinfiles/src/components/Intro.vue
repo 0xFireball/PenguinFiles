@@ -2,7 +2,6 @@
   <div class="hello">
     <img src="../assets/logo.png" width="240" height="240">
     <h1>{{ msg }}</h1>
-    <h6><a href="https://github.com/0xFireball/PenguinFiles" target="_blank">PenguinFiles on GitHub</a></h6>
   </div>
 </template>
 

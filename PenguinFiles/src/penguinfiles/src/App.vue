@@ -7,8 +7,13 @@
         </div>
       </div>
       <div class="row">
-        <div class="twelve columns">
+        <div class="six columns offset-by-three">
           <login></login>
+        </div>
+      </div>
+      <div class="row" id="footer">
+        <div class="six columns offset-by-three ">
+          <h6><a href="https://github.com/0xFireball/PenguinFiles " target="_blank ">PenguinFiles on GitHub</a></h6>
         </div>
       </div>
     </div>
@@ -34,5 +39,10 @@ export default {
     -moz-osx-font-smoothing: grayscale;
     color: #2c3e50;
     margin-top: 60px;
+  }
+
+  #footer {
+    margin: auto;
+    text-align: center;
   }
 </style>

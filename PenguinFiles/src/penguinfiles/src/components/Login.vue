@@ -1,7 +1,6 @@
 <template>
   <div class="login">
-    <h3>Log In / Sign Up</h3>
-    <md-tabs>
+    <md-tabs v-md-theme="'apptheme'" class="md-accent">
       <md-tab id="t-login" md-label="Log In">
 
         <form v-on:submit.prevent="tryLogin">
