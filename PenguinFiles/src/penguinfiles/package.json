@@ -12,7 +12,7 @@
   "dependencies": {
     "skeleton-css": "^2.0.4",
     "vue": "^2.0.1",
-    "vue-material": "^0.2.0",
+    "vue-material": "git+https://github.com/marcosmoura/vue-material.git",
     "vue-router": "^2.0.1"
   },
   "devDependencies": {

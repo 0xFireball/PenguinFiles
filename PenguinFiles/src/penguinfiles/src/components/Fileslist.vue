@@ -16,6 +16,10 @@
               <p>Uploaded some time ago.</p>
             </div>
 
+            <md-button class="md-icon-button md-list-action">
+              <md-icon class="md-primary">more_horiz</md-icon>
+            </md-button>
+
             <md-button class="md-icon-button md-list-action" @click="downloadFile(cfile.id)">
               <md-icon class="md-primary">file_download</md-icon>
             </md-button>
@@ -24,6 +28,7 @@
           </md-list-item>
         </div>
       </md-list>
+      <md-button class="align-right space-v md-raised md-primary">Upload File</md-button>
     </panel>
   </div>
 </template>
@@ -57,5 +62,14 @@ export default {
 <style scoped>
   .invisible {
     display: none;
+  }
+  
+  .space-v {
+    margin-top: 5%;
+    margin-bottom: 5%;
+  }
+  
+  .align-right {
+    float: right;
   }
 </style>
