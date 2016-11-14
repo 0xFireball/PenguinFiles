@@ -4,8 +4,9 @@ import VueRouter from 'vue-router'
 
 // Styles
 import './assets/styles/global.css'
-import 'skeleton-css/css/normalize.css'
-import 'skeleton-css/css/skeleton.css'
+import './assets/styles/material-icons.css'
+import './assets/styles/normalize.css'
+import './assets/styles/ffskeleton.css'
 
 // UI
 import VueMaterial from 'vue-material'
