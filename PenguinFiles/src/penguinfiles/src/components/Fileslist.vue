@@ -1,80 +1,28 @@
 <template>
   <div class="fileslist">
-    <panel :title="header">
+    <panel :title="title">
       <md-list class="custom-list md-triple-line">
         <md-subheader>{{ header }}</md-subheader>
 
-        <md-list-item>
-          <md-avatar>
-            <md-icon class="md-primary">cloud</md-icon>
-          </md-avatar>
+        <div v-for="cfile in cloudfiles">
+          <md-list-item>
+            <md-avatar>
+              <md-icon class="md-primary">cloud</md-icon>
+            </md-avatar>
 
-          <div class="md-list-text-container">
-            <span>Ali Connors</span>
-            <span>Brunch this weekend?</span>
-            <p>I'll be in your neighborhood doing errands...</p>
-          </div>
+            <div class="md-list-text-container">
+              <span>{{ cfile.name }}</span>
+              <span>{{ cfile.kind }}</span>
+              <p>Uploaded some time ago.</p>
+            </div>
 
-          <md-button class="md-icon-button md-list-action">
-            <md-icon class="md-primary">star</md-icon>
-          </md-button>
+            <md-button class="md-icon-button md-list-action" @click="downloadFile(cfile.id)">
+              <md-icon class="md-primary">file_download</md-icon>
+            </md-button>
 
-          <md-divider class="md-inset"></md-divider>
-        </md-list-item>
-
-        <md-list-item>
-          <md-avatar>
-            <md-icon class="md-primary">cloud</md-icon>
-          </md-avatar>
-
-          <div class="md-list-text-container">
-            <span>me, Scott, Jennifer</span>
-            <span>Summer BBQ</span>
-            <p>Wish I could come, but I'm out of town ...</p>
-          </div>
-
-          <md-button class="md-icon-button md-list-action">
-            <md-icon>star_border</md-icon>
-          </md-button>
-
-          <md-divider class="md-inset"></md-divider>
-        </md-list-item>
-
-        <md-list-item>
-          <md-avatar>
-            <md-icon class="md-primary">cloud</md-icon>
-          </md-avatar>
-
-          <div class="md-list-text-container">
-            <span>Sandra Adams</span>
-            <span>Oui oui</span>
-            <p>Do you have Paris recommendations ...</p>
-          </div>
-
-          <md-button class="md-icon-button md-list-action">
-            <md-icon>star_border</md-icon>
-          </md-button>
-
-          <md-divider class="md-inset"></md-divider>
-        </md-list-item>
-
-        <md-list-item>
-          <md-avatar>
-            <md-icon class="md-primary">cloud</md-icon>
-          </md-avatar>
-
-          <div class="md-list-text-container">
-            <span>Trevor Hansen</span>
-            <span>Order confirmation</span>
-            <p>Thank you for your recent order from ...</p>
-          </div>
-
-          <md-button class="md-icon-button md-list-action">
-            <md-icon>star_border</md-icon>
-          </md-button>
-
-          <md-divider class="md-inset"></md-divider>
-        </md-list-item>
+            <md-divider class="md-inset"></md-divider>
+          </md-list-item>
+        </div>
       </md-list>
     </panel>
   </div>
@@ -85,12 +33,19 @@ import Panel from './Panel'
 
 export default {
   name: 'fileslist',
+  props: [
+    'cloudfiles'
+  ],
   data () {
     return {
-      header: 'My Files'
+      title: 'My Files',
+      header: 'All Files'
     }
   },
   methods: {
+    downloadFile: function (id) {
+      window.alert('downloading file ' + id)
+    }
   },
   components: {
     Panel
