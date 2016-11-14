@@ -1,6 +1,7 @@
 <template>
-  <div class="container">
-    <div id="app">
+  <div v-md-theme="'apptheme'">
+    <toolbar></toolbar>
+    <div id="app" class="container">
       <div class="row">
         <div class="twelve columns">
           <intro></intro>
@@ -23,10 +24,12 @@
 <script>
 import Intro from './components/Intro'
 import Login from './components/Login'
+import Toolbar from './components/Toolbar'
 
 export default {
   name: 'app',
   components: {
+    Toolbar,
     Intro,
     Login
   }
@@ -40,7 +43,7 @@ export default {
     color: #2c3e50;
     margin-top: 60px;
   }
-
+  
   #footer {
     margin: auto;
     text-align: center;

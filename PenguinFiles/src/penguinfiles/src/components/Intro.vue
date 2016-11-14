@@ -1,5 +1,5 @@
 <template>
-  <div class="hello">
+  <div class="intro">
     <img src="../assets/logo.png" width="240" height="240">
     <h1>{{ msg }}</h1>
   </div>
@@ -7,7 +7,7 @@
 
 <script>
 export default {
-  name: 'hello',
+  name: 'intro',
   data () {
     return {
       msg: 'PenguinFiles'
@@ -18,7 +18,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-  .hello {
+  .intro {
     text-align: center;
   }
   

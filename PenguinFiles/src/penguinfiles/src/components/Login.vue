@@ -1,6 +1,6 @@
 <template>
   <div class="login">
-    <md-tabs v-md-theme="'apptheme'" class="md-accent">
+    <md-tabs class="md-accent">
       <md-tab id="t-login" md-label="Log In">
 
         <form v-on:submit.prevent="tryLogin">
