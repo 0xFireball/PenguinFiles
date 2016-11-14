@@ -1,7 +1,9 @@
 <template>
   <div class="intro">
-    <img src="../assets/logo.png" width="240" height="240">
-    <h1>{{ msg }}</h1>
+    <div class="has-ripple">
+      <img src="../assets/logo.png" width="240" height="240">
+      <h1>{{ msg }}</h1>
+    </div>
   </div>
 </template>
 

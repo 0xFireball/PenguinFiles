@@ -1,5 +1,6 @@
 
 import Landing from './layouts/Landing'
+import FilesPlace from './layouts/FilesPlace'
 
 const main = [
   {
@@ -10,6 +11,11 @@ const main = [
   {
     path: '/landing',
     redirect: '/'
+  },
+  {
+    path: '/files',
+    name: 'files-places',
+    component: FilesPlace
   }
 ]
 
