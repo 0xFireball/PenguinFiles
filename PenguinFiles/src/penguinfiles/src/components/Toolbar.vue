@@ -1,7 +1,7 @@
 <template>
   <div class="toolbar">
     <md-toolbar>
-      <md-button class="md-icon-button">
+      <md-button class="md-icon-button" @click="toggleLeftSidenav">
         <md-icon>menu</md-icon>
       </md-button>
 
@@ -11,6 +11,18 @@
         <md-icon>favorite</md-icon>
       </md-button>
     </md-toolbar>
+    <md-sidenav class="md-left" ref="leftSidenav">
+      <md-toolbar class="md-large">
+        <div class="md-toolbar-container">
+          <h3 class="md-title">{{ appName }}</h3>
+        </div>
+      </md-toolbar>
+      <div class="container toolbar-content">
+        <h3>GitHub</h3>
+        <p>Star {{ appName }} on GitHub!</p>
+        <md-button class="md-raised md-accent" @click="visitGitHub">Star</md-button>
+      </div>
+    </md-sidenav>
   </div>
 </template>
 
@@ -25,6 +37,9 @@ export default {
   methods: {
     visitGitHub: function () {
       window.open('https://github.com/0xFireball/PenguinFiles')
+    },
+    toggleLeftSidenav: function () {
+      this.$refs.leftSidenav.toggle()
     }
   }
 }
@@ -32,5 +47,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
+  .toolbar-content {
+    margin-top: 15%;
+  }
 </style>
