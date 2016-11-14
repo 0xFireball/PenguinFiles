@@ -1,5 +1,5 @@
 <template>
-  <div class="fileslist">
+  <div class="fileslist" v-md-theme="'inverse'">
     <panel :title="title">
       <md-list class="custom-list md-triple-line">
         <md-subheader>{{ header }}</md-subheader>
@@ -16,9 +16,15 @@
               <p>Uploaded some time ago.</p>
             </div>
 
-            <md-button class="md-icon-button md-list-action">
-              <md-icon class="md-primary">more_horiz</md-icon>
-            </md-button>
+            <md-menu>
+              <md-button class="md-icon-button md-list-action" md-menu-trigger>
+                <md-icon class="md-primary">more_horiz</md-icon>
+              </md-button>
+
+              <md-menu-content>
+                <md-menu-item>Delete</md-menu-item>
+              </md-menu-content>
+            </md-menu>
 
             <md-button class="md-icon-button md-list-action" @click="downloadFile(cfile.id)">
               <md-icon class="md-primary">file_download</md-icon>

@@ -16,7 +16,7 @@
       title: [String, Number],
       titleTheme: {
         type: String,
-        default: 'grey'
+        default: 'default'
       },
       bodyTheme: {
         type: String,

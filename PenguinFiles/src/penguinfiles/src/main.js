@@ -39,6 +39,14 @@ Vue.material.theme.register('apptheme', {
   }
 })
 
+Vue.material.theme.register('inverse', {
+  primary: {
+    color: 'light-blue',
+    hue: 600
+  },
+  accent: 'pink'
+})
+
 /* eslint-disable no-unused-vars */
 const app = new Vue({
   router
