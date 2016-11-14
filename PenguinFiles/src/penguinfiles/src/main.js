@@ -17,8 +17,11 @@ Vue.use(VueRouter)
 Vue.use(VueMaterial)
 
 Vue.material.theme.register('apptheme', {
-  primary: 'cyan',
-  accent: 'pink'
+  primary: 'pink',
+  accent: {
+    color: 'light-blue',
+    hue: 600
+  }
 })
 
 /* eslint-disable no-new */

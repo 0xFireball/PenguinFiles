@@ -12,8 +12,8 @@
             <label>Password</label>
             <md-input type="password"></md-input>
           </md-input-container>
+          <md-button class="md-raised md-primary" v-on:click="tryLogin">Log In</md-button>
         </form>
-        <md-button class="md-raised md-primary" v-on:click="tryLogin">Log In</md-button>
       </md-tab>
 
       <md-tab id="t-signup" md-label="Sign Up">
@@ -30,8 +30,8 @@
             <label>Confirm Password</label>
             <md-input type="password"></md-input>
           </md-input-container>
+          <md-button class="md-raised md-primary" v-on:click="trySignup">Sign Up</md-button>
         </form>
-        <md-button class="md-raised md-primary" v-on:click="trySignup">Sign Up</md-button>
       </md-tab>
 
       <md-tab id="t-about" md-label="About">
