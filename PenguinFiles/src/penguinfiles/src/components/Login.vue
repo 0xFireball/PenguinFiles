@@ -36,11 +36,15 @@
         </form>
       </md-tab>
 
-      <md-tab id="t-about" md-label="About">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas amet cum vitae, omnis! Illum quas
-          voluptatem, expedita iste, dicta ipsum ea veniam dolore in, quod saepe reiciendis nihil.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas amet cum vitae, omnis! Illum quas
-          voluptatem, expedita iste, dicta ipsum ea veniam dolore in, quod saepe reiciendis nihil.</p>
+      <md-tab id="t-about" md-label="About" v-md-ink-ripple>
+        <h5>About PenguinFiles</h5>
+        <p>
+          PenguinFiles will be announced soon!
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas amet cum vitae, omnis! Illum quas voluptatem,
+          expedita iste, dicta ipsum ea veniam dolore in, quod saepe reiciendis nihil.
+        </p>
       </md-tab>
     </md-tabs>
   </div>
