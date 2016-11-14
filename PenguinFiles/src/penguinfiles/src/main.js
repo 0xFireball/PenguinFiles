@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import App from './App'
+// import App from './App'
 import VueRouter from 'vue-router'
 
 // Routes
@@ -20,7 +20,6 @@ Vue.use(VueRouter)
 Vue.use(VueMaterial)
 
 let router = new VueRouter({
-  hashbang: false,
   routes
 })
 
@@ -40,9 +39,14 @@ Vue.material.theme.register('apptheme', {
   }
 })
 
-/* eslint-disable no-new */
-new Vue({
-  el: '#app',
-  template: '<App/>',
-  components: { App }
-})
+/* eslint-disable no-unused-vars */
+const app = new Vue({
+  router
+}).$mount('#app')
+
+// /* eslint-disable no-new */
+// new Vue({
+//   el: '#app',
+//   template: '<App/>',
+//   components: { App }
+// })
