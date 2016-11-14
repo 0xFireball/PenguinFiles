@@ -12,6 +12,7 @@
             <label>Password</label>
             <md-input type="password"></md-input>
           </md-input-container>
+          <input type="submit" class="invisible"></input>
           <md-button class="md-raised md-primary" v-on:click="tryLogin">Log In</md-button>
         </form>
       </md-tab>
@@ -30,6 +31,7 @@
             <label>Confirm Password</label>
             <md-input type="password"></md-input>
           </md-input-container>
+          <input type="submit" class="invisible"></input>
           <md-button class="md-raised md-primary" v-on:click="trySignup">Sign Up</md-button>
         </form>
       </md-tab>
@@ -66,5 +68,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
+  .invisible {
+    display: none;
+  }
 </style>
