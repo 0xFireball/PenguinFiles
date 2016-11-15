@@ -1,11 +1,12 @@
 <template>
   <div class="fileslist">
     <panel :title="title" bodyTheme="apptheme">
-      <md-tabs>
+      <md-tabs ref="fileListTabs">
         <md-tab id="t-files" md-label="Files">
           <md-list class="custom-list md-triple-line">
             <md-subheader>{{ header }}</md-subheader>
 
+            <!-- Available Files -->
             <div v-for="cfile in cloudfiles">
               <md-list-item>
                 <md-avatar v-if="cfile.isEncrypted">
@@ -41,6 +42,30 @@
               </md-list-item>
             </div>
           </md-list>
+          <md-list class="custom-list md-triple-line" v-md-theme="uploadingTheme">
+            <md-subheader>{{ progressHeader }}</md-subheader>
+            <!-- In-progress Files -->
+            <div v-for="ufile in uploadingFiles">
+              <md-list-item>
+                <md-avatar>
+                  <md-icon class="md-primary">file_upload</md-icon>
+                </md-avatar>
+
+                <div class="md-list-text-container">
+                  <span>{{ ufile.name }}</span>
+                  <span>{{ ufile.kind }}</span>
+                  <p>Uploading... {{ ufile.progress }}%</p>
+                </div>
+
+                <md-button class="md-icon-button md-list-action" @click="cancelUpload(ufile.id)">
+                  <md-icon class="md-primary">cancel</md-icon>
+                </md-button>
+
+                <md-divider class="md-inset"></md-divider>
+              </md-list-item>
+            </div>
+
+          </md-list>
         </md-tab>
         <md-tab id="t-upload" md-label="upload">
           <md-subheader>File Options</md-subheader>
@@ -48,6 +73,7 @@
             <md-checkbox v-model="shouldEncryptUploadedFile">Store Encrypted (Significantly Slower)</md-checkbox>
           </div>
           <md-button class="space-v md-raised md-primary" @click="uploadFile()">Upload File</md-button>
+          <input type="file" ref="fileInput" class="invisible">
         </md-tab>
       </md-tabs>
     </panel>
@@ -65,7 +91,17 @@ export default {
     return {
       title: 'My Files',
       header: 'All Files',
-      shouldEncryptUploadedFile: false
+      progressHeader: 'Uploading',
+      shouldEncryptUploadedFile: false,
+      uploadingFiles: [
+        {
+          name: 'Fahrenheit 451',
+          kind: 'Book',
+          progress: 44,
+          id: 451
+        }
+      ],
+      uploadingTheme: 'muted'
     }
   },
   methods: {
@@ -85,7 +121,32 @@ export default {
     },
     uploadFile: function () {
       // hi
+      this.$refs.fileInput.click()
+    },
+    cancelUpload: function (id) {
+      // nothing yet
     }
+  },
+  mounted: function () {
+    let vm = this
+    vm.$refs.fileInput.addEventListener('change', function (ea) {
+      let file = vm.$refs.fileInput.files[0]
+      if (!file) return // upload canceled
+      let reader = new window.FileReader()
+      reader.onload = function (e) {
+        // process the file contents
+        // reader.result
+        // console.log(reader.result)
+        // change active tab and add uploading status
+        vm.uploadingFiles.push({
+          name: 'Random File #2',
+          kind: 'Book',
+          id: 494
+        })
+        vm.$refs.fileListTabs.changeTab('t-files')
+      }
+      reader.readAsDataURL(file)
+    })
   },
   components: {
     Panel
@@ -103,7 +164,7 @@ export default {
     margin-top: 5%;
     margin-bottom: 5%;
   }
-
+  
   .md-checkbox {
     padding-left: 16px;
   }
