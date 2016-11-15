@@ -16,11 +16,11 @@
       title: [String, Number],
       titleTheme: {
         type: String,
-        default: 'default'
+        default: 'muted'
       },
       bodyTheme: {
         type: String,
-        default: 'default'
+        default: 'apptheme'
       },
       size: [String, Number],
       height: [String, Number]

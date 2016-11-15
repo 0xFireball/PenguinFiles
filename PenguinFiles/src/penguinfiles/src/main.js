@@ -31,20 +31,28 @@ router.afterEach((currentRoute) => {
   }
 })
 
-Vue.material.theme.register('apptheme', {
-  primary: 'pink',
-  accent: {
-    color: 'light-blue',
-    hue: 600
-  }
-})
-
-Vue.material.theme.register('inverse', {
-  primary: {
-    color: 'light-blue',
-    hue: 600
+Vue.material.theme.registerAll({
+  muted: {
+    primary: {
+      color: 'grey',
+      hue: 300
+    },
+    accent: 'indigo'
   },
-  accent: 'pink'
+  apptheme: {
+    primary: 'pink',
+    accent: {
+      color: 'light-blue',
+      hue: 600
+    }
+  },
+  inverse: {
+    primary: {
+      color: 'light-blue',
+      hue: 600
+    },
+    accent: 'pink'
+  }
 })
 
 /* eslint-disable no-unused-vars */

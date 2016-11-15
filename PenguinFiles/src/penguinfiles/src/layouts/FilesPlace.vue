@@ -1,10 +1,10 @@
 <template>
-  <div v-md-theme="'apptheme'">
-    <toolbar></toolbar>
+  <div v-md-theme="'muted'">
+    <toolbar v-md-theme="'apptheme'"></toolbar>
     <div id="filesplace" class="container">
       <div class="row">
         <div class="twelve columns">
-          <fileslist :cloudfiles="cloudFiles"></fileslist>
+          <filesList :cloudfiles="cloudFiles"></filesList>
         </div>
       </div>
       <div class="row" id="footer">
@@ -18,7 +18,7 @@
 
 <script>
 import Toolbar from '../components/Toolbar'
-import Fileslist from '../components/Fileslist'
+import FilesList from '../components/filesList'
 
 export default {
   name: 'filesplace',
@@ -46,7 +46,7 @@ export default {
   },
   components: {
     Toolbar,
-    Fileslist
+    FilesList
   }
 }
 </script>
