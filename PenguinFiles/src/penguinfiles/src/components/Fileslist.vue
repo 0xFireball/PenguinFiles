@@ -6,8 +6,11 @@
 
         <div v-for="cfile in cloudfiles">
           <md-list-item>
-            <md-avatar>
-              <md-icon class="md-primary">cloud</md-icon>
+            <md-avatar v-if="cfile.isEncrypted">
+              <md-icon class="md-primary">lock</md-icon>
+            </md-avatar>
+            <md-avatar v-else>
+              <md-icon class="md-primary">lock_open</md-icon>
             </md-avatar>
 
             <div class="md-list-text-container">
@@ -22,7 +25,9 @@
               </md-button>
 
               <md-menu-content>
-                <md-menu-item>Delete</md-menu-item>
+                <md-menu-item v-if="cfile.isEncrypted" @click="decryptFile(cfile.id)">Decrypt</md-menu-item>
+                <md-menu-item v-else @click="encryptFile(cfile.id)">Encrypt</md-menu-item>
+                <md-menu-item @click="deleteFile(cfile.id)">Delete</md-menu-item>
               </md-menu-content>
             </md-menu>
 
@@ -55,7 +60,18 @@ export default {
   },
   methods: {
     downloadFile: function (id) {
-      window.alert('downloading file ' + id)
+      console.log('downloading file ' + id)
+    },
+    deleteFile: function (id) {
+      if (window.confirm('are you sure you want to delete this file?')) {
+        console.log('deleting file ' + id)
+      }
+    },
+    encryptFile: function (id) {
+      console.log('encrypting file ' + id)
+    },
+    decryptFile: function (id) {
+      console.log('decrypting file ' + id)
     }
   },
   components: {

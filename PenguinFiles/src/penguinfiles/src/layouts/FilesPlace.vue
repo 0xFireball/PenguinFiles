@@ -38,7 +38,8 @@ export default {
         {
           name: 'totally-not-passwords.txt',
           kind: 'Text File',
-          id: 1339
+          id: 1339,
+          isEncrypted: true
         }
       ]
     }
