@@ -43,7 +43,11 @@
           </md-list>
         </md-tab>
         <md-tab id="t-upload" md-label="upload">
-          <fileUploadArea></fileUploadArea>
+          <md-subheader>File Options</md-subheader>
+          <div>
+            <md-checkbox v-model="shouldEncryptUploadedFile">Store Encrypted (Significantly Slower)</md-checkbox>
+          </div>
+          <md-button class="space-v md-raised md-primary" @click="uploadFile()">Upload File</md-button>
         </md-tab>
       </md-tabs>
     </panel>
@@ -52,7 +56,6 @@
 
 <script>
 import Panel from './Panel'
-import FileUploadArea from '../components/fileUploadArea'
 
 export default {
   props: [
@@ -61,7 +64,8 @@ export default {
   data () {
     return {
       title: 'My Files',
-      header: 'All Files'
+      header: 'All Files',
+      shouldEncryptUploadedFile: false
     }
   },
   methods: {
@@ -78,11 +82,13 @@ export default {
     },
     decryptFile: function (id) {
       console.log('decrypting file ' + id)
+    },
+    uploadFile: function () {
+      // hi
     }
   },
   components: {
-    Panel,
-    FileUploadArea
+    Panel
   }
 }
 </script>
@@ -96,5 +102,9 @@ export default {
   .space-v {
     margin-top: 5%;
     margin-bottom: 5%;
+  }
+
+  .md-checkbox {
+    padding-left: 16px;
   }
 </style>
