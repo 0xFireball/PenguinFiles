@@ -5,7 +5,6 @@
         <md-tab id="t-files" md-label="Files">
           <md-list class="custom-list md-triple-line">
             <md-subheader>{{ header }}</md-subheader>
-
             <!-- Available Files -->
             <div v-for="cfile in cloudfiles">
               <md-list-item>
@@ -42,8 +41,10 @@
               </md-list-item>
             </div>
           </md-list>
-          <md-list class="custom-list md-triple-line" v-md-theme="uploadingTheme">
+
+          <md-list class="custom-list md-triple-line">
             <md-subheader>{{ progressHeader }}</md-subheader>
+
             <!-- In-progress Files -->
             <div v-for="ufile in uploadingFiles">
               <md-list-item>
@@ -54,18 +55,18 @@
                 <div class="md-list-text-container">
                   <span>{{ ufile.name }}</span>
                   <span>{{ ufile.kind }}</span>
-                  <p>Uploading... {{ ufile.progress }}%</p>
+                  <p>{{ ufile.progress }}% uploaded</p>
                 </div>
 
-                <md-button class="md-icon-button md-list-action" @click="cancelUpload(ufile.id)">
-                  <md-icon class="md-primary">cancel</md-icon>
+                <md-button class="md-icon-button md-list-action">
+                  <md-icon class="md-primary">star</md-icon>
                 </md-button>
 
                 <md-divider class="md-inset"></md-divider>
               </md-list-item>
             </div>
-
           </md-list>
+
         </md-tab>
         <md-tab id="t-upload" md-label="upload">
           <md-subheader>File Options</md-subheader>
@@ -93,15 +94,15 @@ export default {
       header: 'All Files',
       progressHeader: 'Uploading',
       shouldEncryptUploadedFile: false,
+      uploadingTheme: 'muted',
       uploadingFiles: [
         {
-          name: 'Fahrenheit 451',
-          kind: 'Book',
-          progress: 44,
-          id: 451
+          name: 'bob',
+          kind: 'fake',
+          progress: 99,
+          id: 9324
         }
-      ],
-      uploadingTheme: 'muted'
+      ]
     }
   },
   methods: {
@@ -121,32 +122,40 @@ export default {
     },
     uploadFile: function () {
       // hi
-      this.$refs.fileInput.click()
+      // this.$refs.fileInput.click()
+      this.uploadingFiles.push({
+        name: 'Fahrenheit 451',
+        kind: 'Book',
+        progress: 44,
+        id: 451
+      })
+      this.$refs.fileListTabs.changeTab('t-files')
     },
     cancelUpload: function (id) {
       // nothing yet
     }
   },
   mounted: function () {
-    let vm = this
-    vm.$refs.fileInput.addEventListener('change', function (ea) {
-      let file = vm.$refs.fileInput.files[0]
-      if (!file) return // upload canceled
-      let reader = new window.FileReader()
-      reader.onload = function (e) {
-        // process the file contents
-        // reader.result
-        // console.log(reader.result)
-        // change active tab and add uploading status
-        vm.uploadingFiles.push({
-          name: 'Random File #2',
-          kind: 'Book',
-          id: 494
-        })
-        vm.$refs.fileListTabs.changeTab('t-files')
-      }
-      reader.readAsDataURL(file)
-    })
+    // let vm = this
+    // vm.$refs.fileInput.addEventListener('change', function (ea) {
+    //   let file = vm.$refs.fileInput.files[0]
+    //   if (!file) return // upload canceled
+    //   let reader = new window.FileReader()
+    //   reader.onload = function (e) {
+    //     // process the file contents
+    //     // reader.result
+    //     // console.log(reader.result)
+    //     // change active tab and add uploading status
+    //     vm.uploadingFiles.push({
+    //       name: 'Random File #2',
+    //       kind: 'Book',
+    //       id: 494
+    //     })
+    //     console.log(vm.uploadingFiles)
+    //     vm.$refs.fileListTabs.changeTab('t-files')
+    //   }
+    //   reader.readAsDataURL(file)
+    // })
   },
   components: {
     Panel
