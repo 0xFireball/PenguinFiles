@@ -42,9 +42,12 @@
             </div>
           </md-list>
 
-          <md-list class="custom-list md-triple-line">
-            <md-subheader>{{ progressHeader }}</md-subheader>
 
+          <div v-for="ufile in uploadingFiles">
+          </div>
+
+          <md-list class="custom-list md-triple-line" v-md-theme="uploadingTheme">
+            <md-subheader>{{ progressHeader }}</md-subheader>
             <!-- In-progress Files -->
             <div v-for="ufile in uploadingFiles">
               <md-list-item>
@@ -66,8 +69,8 @@
               </md-list-item>
             </div>
           </md-list>
-
         </md-tab>
+
         <md-tab id="t-upload" md-label="upload">
           <md-subheader>File Options</md-subheader>
           <div>
