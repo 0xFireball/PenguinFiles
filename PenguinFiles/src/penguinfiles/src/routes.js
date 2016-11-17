@@ -1,6 +1,7 @@
 
 import Landing from './layouts/Landing'
 import FilesPlace from './layouts/FilesPlace'
+import NotFound from './layouts/NotFound'
 
 const main = [
   {
@@ -23,7 +24,7 @@ const error = [
   {
     path: '*',
     name: 'error',
-    component: Landing // Use Error404
+    component: NotFound
   }
 ]
 
