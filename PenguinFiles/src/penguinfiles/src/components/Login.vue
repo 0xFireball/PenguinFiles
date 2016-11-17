@@ -72,6 +72,9 @@ export default {
       })
       .then((response) => {
         // TODO: process response
+        if (response.success) {
+          vm.$router.push('/files')
+        }
       })
       .catch(function (error) {
         // TODO: handle error
