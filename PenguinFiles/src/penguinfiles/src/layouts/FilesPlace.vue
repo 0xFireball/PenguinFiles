@@ -1,6 +1,5 @@
 <template>
   <div v-md-theme="'muted'">
-    <toolbar v-md-theme="'apptheme'"></toolbar>
     <div id="filesplace" class="container">
       <div class="row">
         <div class="twelve columns">

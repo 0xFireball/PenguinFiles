@@ -1,6 +1,5 @@
 <template>
   <div v-md-theme="'apptheme'">
-    <toolbar></toolbar>
     <div id="app" class="container">
       <div class="row" id="intro-area">
         <div class="twelve columns">

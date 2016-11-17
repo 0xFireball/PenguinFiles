@@ -55,10 +55,15 @@ Vue.material.theme.registerAll({
   }
 })
 
+import App from './App'
+
+let PenguinFilesApp = Vue.component('app', App)
+
 /* eslint-disable no-unused-vars */
-const app = new Vue({
+const app = new PenguinFilesApp({
+  el: '#app',
   router
-}).$mount('#app')
+})
 
 // /* eslint-disable no-new */
 // new Vue({
