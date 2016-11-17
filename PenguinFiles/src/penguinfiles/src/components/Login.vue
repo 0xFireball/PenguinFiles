@@ -12,6 +12,7 @@
             <label>Password</label>
             <md-input type="password" v-model="lPassword"></md-input>
           </md-input-container>
+          <p>{{ lErrMsg }}</p>
           <input type="submit" class="invisible"></input>
           <md-button class="md-raised md-primary" v-on:click="tryLogin">Log In</md-button>
         </form>
@@ -31,6 +32,7 @@
             <label>Confirm Password</label>
             <md-input type="password"></md-input>
           </md-input-container>
+          <p>{{ rErrMsg }}</p>
           <input type="submit" class="invisible"></input>
           <md-button class="md-raised md-primary" v-on:click="trySignup">Sign Up</md-button>
         </form>
@@ -54,24 +56,28 @@ export default {
       lUsername: '', // login username
       lPassword: '', // login password
       rPassword: '', // register password
-      rConfirmPassword: '' // register confirm password
+      rConfirmPassword: '', // register confirm password
+      lErrMsg: '', // login error message
+      rErrMsg: '' // register error message
     }
   },
   methods: {
     tryLogin: function () {
       // nothing
-      window.alert('Can\'t log in yet.')
       let vm = this
       // send login post
       axios.post('/p/login', {
-        username: lUsername,
-        password: lPassword
+        username: vm.lUsername,
+        password: vm.lPassword
       })
       .then((response) => {
         // TODO: process response
       })
-      .catch((error) => {
+      .catch(function (error) {
         // TODO: handle error
+        if (error) {
+          vm.lErrMsg = 'invalid login credentials'
+        }
       })
     },
     trySignup: function () {
