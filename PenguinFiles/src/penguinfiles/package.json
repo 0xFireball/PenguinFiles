@@ -10,6 +10,7 @@
     "lint": "eslint --ext .js,.vue src"
   },
   "dependencies": {
+    "axios": "^0.15.2",
     "skeleton-css": "^2.0.4",
     "vue": "^2.0.1",
     "vue-material": "git+https://github.com/marcosmoura/vue-material.git",

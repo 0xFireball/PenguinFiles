@@ -6,11 +6,11 @@
         <form v-on:submit.prevent="tryLogin">
           <md-input-container>
             <label>Username</label>
-            <md-input></md-input>
+            <md-input v-model="lUsername"></md-input>
           </md-input-container>
           <md-input-container md-has-password>
             <label>Password</label>
-            <md-input type="password"></md-input>
+            <md-input type="password" v-model="lPassword"></md-input>
           </md-input-container>
           <input type="submit" class="invisible"></input>
           <md-button class="md-raised md-primary" v-on:click="tryLogin">Log In</md-button>
@@ -45,17 +45,34 @@
 
 <script>
 import AboutWidget from './widgets/aboutWidget'
+import axios from 'axios'
 
 export default {
   name: 'login',
   data () {
     return {
+      lUsername: '', // login username
+      lPassword: '', // login password
+      rPassword: '', // register password
+      rConfirmPassword: '' // register confirm password
     }
   },
   methods: {
     tryLogin: function () {
       // nothing
       window.alert('Can\'t log in yet.')
+      let vm = this
+      // send login post
+      axios.post('/p/login', {
+        username: lUsername,
+        password: lPassword
+      })
+      .then((response) => {
+        // TODO: process response
+      })
+      .catch((error) => {
+        // TODO: handle error
+      })
     },
     trySignup: function () {
       // nothing
