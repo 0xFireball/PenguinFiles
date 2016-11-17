@@ -3,7 +3,9 @@
     <div class="has-ripple">
       <img src="../assets/logo.png" width="240" height="240">
       <h1>{{ msg }}</h1>
-      <h5 class="company-brand">IridiumIon Software</h5>
+      <a href="https://iridiumion.xyz" target="_blank">
+        <h5 class="company-brand">IridiumIon Software</h5>
+      </a>
     </div>
   </div>
 </template>
@@ -43,7 +45,7 @@ export default {
   a {
     color: #42b983;
   }
-
+  
   h5.company-brand {
     letter-spacing: 0.12rem;
     font-weight: 300;

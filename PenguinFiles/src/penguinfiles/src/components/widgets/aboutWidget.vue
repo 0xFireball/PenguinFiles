@@ -2,6 +2,9 @@
   <div class="about-widget">
     <h5>About PenguinFiles</h5>
     <p>
+      PenguinFiles is an open source, lightweight, simple, and secure cloud file management application.
+    </p>
+    <p>
       PenguinFiles will be announced soon!
     </p>
     <p>
