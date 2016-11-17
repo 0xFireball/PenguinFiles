@@ -45,8 +45,8 @@ export default {
   }
 
   h5.company-brand {
-    letter-spacing: 0.2rem;
-    font-weight: 200;
+    letter-spacing: 0.12rem;
+    font-weight: 300;
     text-transform: uppercase;
   }
 </style>
