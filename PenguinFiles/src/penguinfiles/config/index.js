@@ -4,8 +4,8 @@ var path = require('path')
 module.exports = {
   build: {
     env: require('./prod.env'),
-    index: path.resolve(__dirname, '../../PenguinFiles.Server/wwwroot/app/index.html'),
-    assetsRoot: path.resolve(__dirname, '../../PenguinFiles.Server/wwwroot/app'),
+    index: path.resolve(__dirname, '../../PenguinFiles.Server/views/index.html'),
+    assetsRoot: path.resolve(__dirname, '../../PenguinFiles.Server/views/'),
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
     productionSourceMap: true,

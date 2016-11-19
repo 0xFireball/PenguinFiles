@@ -15,10 +15,7 @@ namespace PenguinFiles
         {
             base.ConfigureConventions(nancyConventions);
             nancyConventions.StaticContentsConventions.Add(
-                StaticContentConventionBuilder.AddDirectory("static", "wwwroot/app/static/")
-            );
-            nancyConventions.StaticContentsConventions.Add(
-                StaticContentConventionBuilder.AddDirectory("app", "wwwroot/app/")
+                StaticContentConventionBuilder.AddDirectory("assets", "wwwroot/")
             );
         }
 
