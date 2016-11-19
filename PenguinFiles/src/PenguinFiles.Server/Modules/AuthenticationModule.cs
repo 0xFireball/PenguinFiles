@@ -52,7 +52,7 @@ namespace PenguinFiles.Modules
                     return Response.AsJson(new RegistrationErrorResponse
                     {
                         Message = "username must be at least 3 characters"
-                    });
+                    }).WithStatusCode(HttpStatusCode.Unauthorized);
                 }
 
                 Regex validUsernameRegex = new Regex("^[a-zA-Z0-9]*$");
@@ -61,7 +61,7 @@ namespace PenguinFiles.Modules
                     return Response.AsJson(new RegistrationErrorResponse
                     {
                         Message = "username must be alphanumeric"
-                    });
+                    }).WithStatusCode(HttpStatusCode.Unauthorized);
                 }
 
                 //check password
@@ -70,7 +70,7 @@ namespace PenguinFiles.Modules
                     return Response.AsJson(new RegistrationErrorResponse
                     {
                         Message = "password must be at least 8 characters"
-                    });
+                    }).WithStatusCode(HttpStatusCode.Unauthorized);
                 }
 
                 //Store account in database! First check for conflicts and stuff
@@ -87,7 +87,7 @@ namespace PenguinFiles.Modules
                     return Response.AsJson(new RegistrationErrorResponse
                     {
                         Message = "username is taken"
-                    });
+                    }).WithStatusCode(HttpStatusCode.Unauthorized);
                 }
 
                 //success!
