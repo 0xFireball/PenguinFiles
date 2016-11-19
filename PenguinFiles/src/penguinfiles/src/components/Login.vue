@@ -96,8 +96,8 @@ export default {
       // nothing
       let vm = this
       // make sure confirmation is correct
-      if (vm.rUsername.length < 2) {
-        vm.rErrMsg = 'username must be at least 2 characters. this is also validated on the server'
+      if (vm.rUsername.length < 3) {
+        vm.rErrMsg = 'username must be at least 3 characters. this is also validated on the server'
         return
       }
       if (vm.rPassword.length < 8) {

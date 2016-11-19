@@ -32,7 +32,13 @@ namespace PenguinFiles.Modules
             {
                 var signupParams = this.BindJson<WebSignupParameters>();
 
+                //validate
 
+                //check username
+
+
+                //success!
+                return this.Login(matchingUser.Identifier, expiryTime);
             });
         }
     }
