@@ -2,6 +2,7 @@
 using Nancy.ModelBinding;
 using PenguinFiles.Models.Auth;
 using PenguinFiles.Models.Auth.Responses;
+using PenguinFiles.Utilities;
 
 namespace PenguinFiles.Modules
 {
@@ -11,7 +12,7 @@ namespace PenguinFiles.Modules
         {
             Post("/login", p =>
             {
-                var loginParams = this.Bind<WebLoginParameters>();
+                var loginParams = this.BindJson<WebLoginParameters>();
 
                 var loginResponse = new WebLoginResponse
                 {
