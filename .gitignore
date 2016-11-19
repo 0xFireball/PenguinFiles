@@ -1,6 +1,9 @@
 
 # Created by https://www.gitignore.io/api/visualstudio,visualstudiocode,node
 
+# LiteDB databases
+*.lidb
+
 ### VisualStudioCode ###
 .vscode/*
 !.vscode/settings.json
