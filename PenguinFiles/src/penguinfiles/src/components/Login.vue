@@ -126,8 +126,7 @@ export default {
           this.$refs.authOptionTabs.changeTab('t-login')
         } else if (response.status === 401) {
           // unauthorized because of error
-          let responseData = JSON.parse(response.data)
-          vm.rErrMsg = responseData.Message
+          vm.rErrMsg = response.data.Message
         }
       })
       .catch(function (error) {
