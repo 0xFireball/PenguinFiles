@@ -5,6 +5,7 @@ using PenguinFiles.Models.Auth.Responses;
 using PenguinFiles.Services.Authentication;
 using PenguinFiles.Utilities;
 using System;
+using System.Text.RegularExpressions;
 
 namespace PenguinFiles.Modules
 {
@@ -40,7 +41,25 @@ namespace PenguinFiles.Modules
                 {
                     return Response.AsJson(new RegistrationErrorResponse
                     {
-                        Message = "",
+                        Message = "username must be at least 3 characters"
+                    });
+                }
+
+                Regex validUsernameRegex = new Regex("^[a-zA-Z0-9]*$");
+                if (!validUsernameRegex.IsMatch(signupParams.Username))
+                {
+                    return Response.AsJson(new RegistrationErrorResponse
+                    {
+                        Message = "username must be alphanumeric"
+                    });
+                }
+
+                //check password
+                if (signupParams.Password.Length < 8)
+                {
+                    return Response.AsJson(new RegistrationErrorResponse
+                    {
+                        Message = "password must be at least 8 characters"
                     });
                 }
 
