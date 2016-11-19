@@ -92,19 +92,32 @@ export default {
     trySignup: function () {
       // nothing
       let vm = this
+      // make sure confirmation is correct
+      if (vm.rPassword !== vm.rConfirmPassword) {
+        vm.rErrMsg = 'password confirmation does not match'
+        return
+      }
       // reset error message
       vm.rErrMsg = ''
       // send register post
       axios.post('/register', {
-        
+        username: vm.rUsername,
+        password: vm.rPassword
       }, axiosRequestConfig)
       .then((response) => {
         // TODO: process response
-        vm.$router.push('/newuser')
+        if (response.status === 200) {
+          // registration succeeded
+          vm.$router.push('/newuser')
+        } else if (response.status === 403) {
+          // unauthorized because of error
+          let responseData = JSON.parse(response.data)
+          vm.rErrMsg = responseData.msg
+        }
       })
       .catch(function (error) {
         if (error) {
-          vm.rErrMsg = 'invalid registration parameters'
+          console.log(error)
         }
       })
     }

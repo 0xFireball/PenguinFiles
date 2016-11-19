@@ -27,6 +27,11 @@ namespace PenguinFiles.Modules
                 var expiryTime = DateTime.Now.AddDays(1);
                 return this.Login(matchingUser.Identifier, expiryTime);
             });
+
+            Post("/register", p =>
+            {
+                
+            });
         }
     }
 }
