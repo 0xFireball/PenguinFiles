@@ -72,7 +72,7 @@ export default {
       })
       .then((response) => {
         // TODO: process response
-        if (response.success) {
+        if (response.Success) {
           vm.$router.push('/files')
         }
       })
