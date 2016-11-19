@@ -1,8 +1,9 @@
 ﻿using Nancy;
-using Nancy.ModelBinding;
+using Nancy.Authentication.Forms;
 using PenguinFiles.Models.Auth;
-using PenguinFiles.Models.Auth.Responses;
+using PenguinFiles.Services.Authentication;
 using PenguinFiles.Utilities;
+using System;
 
 namespace PenguinFiles.Modules
 {
@@ -14,11 +15,17 @@ namespace PenguinFiles.Modules
             {
                 var loginParams = this.BindJson<WebLoginParameters>();
 
-                var loginResponse = new WebLoginResponse
-                {
+                var userManagerConnection = new WebLoginUserManager();
+                var matchingUser = userManagerConnection.FindUserByUsername(loginParams.Username);
 
-                };
-                return Response.AsJson(loginResponse);
+                //Ensure validity of credentials
+                if (matchingUser == null || !userManagerConnection.CheckPassword(loginParams.Password, matchingUser))
+                {
+                    //Login failed
+                    return new Response().WithStatusCode(HttpStatusCode.Unauthorized);
+                }
+                var expiryTime = DateTime.Now.AddDays(1);
+                return this.Login(matchingUser.Identifier, expiryTime);
             });
         }
     }
