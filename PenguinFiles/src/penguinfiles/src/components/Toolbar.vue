@@ -75,7 +75,8 @@ export default {
   name: 'toolbar',
   data () {
     return {
-      appName: 'PenguinFiles'
+      appName: 'PenguinFiles',
+      isLoggedIn: false
     }
   },
   methods: {
@@ -86,18 +87,19 @@ export default {
       this.$refs.leftSidenav.toggle()
     }
   },
-  computed: {
-    isLoggedIn () {
+  created () {
+    let vm = this
+    setInterval(function () {
       axios.post('/checkauth')
       .then((response) => {
-        return true
+        vm.isLoggedIn = true
       })
       .catch(function (error) {
         if (error) {
-          return false
+          vm.isLoggedIn = false
         }
       })
-    }
+    }, 800)
   }
 }
 </script>

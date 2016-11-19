@@ -35,6 +35,7 @@ namespace PenguinFiles
             var formsAuthConfiguration =
             new FormsAuthenticationConfiguration
             {
+                DisableRedirect = true,
                 RedirectUrl = "/app/",
                 UserMapper = container.Resolve<IUserMapper>()
             };

@@ -49,9 +49,9 @@ export default {
   },
   methods: {
     // run when mounted
-    mounted () {
-      // fetch user data
-    }
+  },
+  mounted () {
+    // fetch user data
   }
 }
 </script>
