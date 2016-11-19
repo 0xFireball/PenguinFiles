@@ -38,7 +38,7 @@
               <router-link exact to="/">Home</router-link>
             </md-list-item>
 
-            <md-list-item>
+            <md-list-item v-if="isLoggedIn">
               <router-link exact to="/files">Files</router-link>
             </md-list-item>
 
@@ -69,6 +69,8 @@
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
   name: 'toolbar',
   data () {
@@ -82,6 +84,19 @@ export default {
     },
     toggleLeftSidenav: function () {
       this.$refs.leftSidenav.toggle()
+    }
+  },
+  computed: {
+    isLoggedIn () {
+      axios.get('/checkauth')
+      .then((response) => {
+        return true
+      })
+      .catch(function (error) {
+        if (error) {
+          return false
+        }
+      })
     }
   }
 }
