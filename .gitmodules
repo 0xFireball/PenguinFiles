@@ -1,0 +1,3 @@
+[submodule "PenguinFiles/src/Libraries/LiteDB.DotNetCore"]
+	path = PenguinFiles/src/Libraries/LiteDB.DotNetCore
+	url = https://github.com/0xFireball/LiteDB.DotNetCore.git
