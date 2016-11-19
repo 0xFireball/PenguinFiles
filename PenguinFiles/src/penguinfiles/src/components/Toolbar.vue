@@ -90,13 +90,17 @@ export default {
   created () {
     let vm = this
     setInterval(function () {
-      axios.post('/checkauth', {
+      axios.post('/checkauth', {/* no data */}, {
         validateStatus: function (status) {
           return status === 200 || status === 401
         }
       })
       .then((response) => {
-        vm.isLoggedIn = true
+        if (response.status === 200) {
+          vm.isLoggedIn = true
+        } else if (response.status === 401) {
+          vm.isLoggedIn = false
+        }
       })
       .catch(function (error) {
         if (error) {
