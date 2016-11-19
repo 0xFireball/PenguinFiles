@@ -1,11 +1,13 @@
-﻿namespace PenguinFiles.Models.Auth
+﻿using Newtonsoft.Json;
+
+namespace PenguinFiles.Models.Auth
 {
     public class WebSignupParameters
     {
+        [JsonProperty("username")]
         public string Username { get; set; }
+
+        [JsonProperty("password")]
         public string Password { get; set; }
-        public string ConfirmPassword { get; set; }
-        public bool IUnderstand { get; set; }
-        public bool IAccept { get; set; }
     }
 }

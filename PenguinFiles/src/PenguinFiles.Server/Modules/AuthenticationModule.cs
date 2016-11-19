@@ -30,7 +30,9 @@ namespace PenguinFiles.Modules
 
             Post("/register", p =>
             {
-                
+                var signupParams = this.BindJson<WebSignupParameters>();
+
+
             });
         }
     }
