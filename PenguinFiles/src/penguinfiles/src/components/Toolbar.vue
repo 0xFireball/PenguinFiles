@@ -85,21 +85,19 @@ export default {
     },
     toggleLeftSidenav: function () {
       this.$refs.leftSidenav.toggle()
-    }
-  },
-  created () {
-    let vm = this
-    let axiosConf = {
-      validateStatus: function (status) {
-        return status === 200 || status === 401
+    },
+    updateLoggedInStatus: function () {
+      let vm = this
+      let axiosConf = {
+        validateStatus: function (status) {
+          return status >= 200 && status < 500
+        }
       }
-    }
-    setInterval(function () {
       axios.get('/checkauth', axiosConf)
       .then((response) => {
         if (response.status === 200) {
           vm.isLoggedIn = true
-        } else if (response.status === 401) {
+        } else if (response.status === 401 || response.status === 404) {
           vm.isLoggedIn = false
         }
       })
@@ -108,7 +106,15 @@ export default {
           vm.isLoggedIn = false
         }
       })
-    }, 800)
+    }
+  },
+  created () {
+    this.updateLoggedInStatus()
+    // then register hook
+    this.$router.beforeEach((to, from, next) => {
+      this.updateLoggedInStatus()
+      next()
+    })
   }
 }
 </script>
