@@ -46,6 +46,12 @@ export default {
   components: {
     Toolbar,
     FilesList
+  },
+  methods: {
+    // run when mounted
+    mounted () {
+      // fetch user data
+    }
   }
 }
 </script>
