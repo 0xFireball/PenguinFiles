@@ -1,6 +1,7 @@
 ﻿using Nancy;
 using Nancy.Authentication.Forms;
 using PenguinFiles.Models.Auth;
+using PenguinFiles.Models.Auth.Responses;
 using PenguinFiles.Services.Authentication;
 using PenguinFiles.Utilities;
 using System;
@@ -35,7 +36,13 @@ namespace PenguinFiles.Modules
                 //validate
 
                 //check username
-
+                if (signupParams.Username.Length < 3)
+                {
+                    return Response.AsJson(new RegistrationErrorResponse
+                    {
+                        Message = "",
+                    });
+                }
 
                 //success!
                 return this.Login(matchingUser.Identifier, expiryTime);
