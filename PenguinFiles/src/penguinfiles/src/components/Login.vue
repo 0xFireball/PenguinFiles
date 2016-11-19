@@ -49,6 +49,12 @@
 import AboutWidget from './widgets/aboutWidget'
 import axios from 'axios'
 
+let axiosRequestConfig = {
+  validateStatus: function (status) {
+    return status >= 200 && status < 500
+  }
+}
+
 export default {
   name: 'login',
   data () {
@@ -65,6 +71,8 @@ export default {
     tryLogin: function () {
       // nothing
       let vm = this
+      // reset error message
+      vm.lErrMsg = ''
       // send login post
       axios.post('/login', {
         username: vm.lUsername,
@@ -72,9 +80,7 @@ export default {
       })
       .then((response) => {
         // TODO: process response
-        if (response.Success) {
-          vm.$router.push('/files')
-        }
+        vm.$router.push('/files')
       })
       .catch(function (error) {
         // TODO: handle error
@@ -85,7 +91,22 @@ export default {
     },
     trySignup: function () {
       // nothing
-      window.alert('Can\'t sign up yet.')
+      let vm = this
+      // reset error message
+      vm.rErrMsg = ''
+      // send register post
+      axios.post('/register', {
+        
+      }, axiosRequestConfig)
+      .then((response) => {
+        // TODO: process response
+        vm.$router.push('/newuser')
+      })
+      .catch(function (error) {
+        if (error) {
+          vm.rErrMsg = 'invalid registration parameters'
+        }
+      })
     }
   },
   components: {
