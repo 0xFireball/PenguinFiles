@@ -66,7 +66,7 @@ export default {
       // nothing
       let vm = this
       // send login post
-      axios.post('/p/login', {
+      axios.post('/login', {
         username: vm.lUsername,
         password: vm.lPassword
       })

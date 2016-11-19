@@ -9,7 +9,7 @@ namespace PenguinFiles.Modules
     {
         public AuthenticationModule()
         {
-            Post("/p/login", p =>
+            Post("/login", p =>
             {
                 var loginParams = this.Bind<WebLoginParameters>();
 
