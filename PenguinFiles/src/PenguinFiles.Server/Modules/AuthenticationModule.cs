@@ -1,6 +1,5 @@
 ﻿using Nancy;
 using Nancy.Authentication.Forms;
-using Nancy.Responses;
 using PenguinFiles.Models.Auth;
 using PenguinFiles.Models.Auth.Responses;
 using PenguinFiles.Services.Authentication;
@@ -14,6 +13,16 @@ namespace PenguinFiles.Modules
     {
         public AuthenticationModule()
         {
+            Get("/checkauth", p =>
+            {
+                if (Context.CurrentUser != null)
+                {
+                    //user is logged in
+                    return new Response().WithStatusCode(HttpStatusCode.OK);
+                }
+                return new Response().WithStatusCode(HttpStatusCode.Unauthorized);
+            });
+
             Post("/login", p =>
             {
                 var loginParams = this.BindJson<WebLoginParameters>();
