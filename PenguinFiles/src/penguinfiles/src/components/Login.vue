@@ -124,7 +124,7 @@ export default {
         if (response.status === 200) {
           // registration succeeded
           this.$refs.authOptionTabs.changeTab('t-login')
-        } else if (response.status === 403) {
+        } else if (response.status === 401) {
           // unauthorized because of error
           let responseData = JSON.parse(response.data)
           vm.rErrMsg = responseData.Message
