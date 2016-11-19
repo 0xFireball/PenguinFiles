@@ -88,7 +88,7 @@ export default {
   },
   computed: {
     isLoggedIn () {
-      axios.get('/checkauth')
+      axios.post('/checkauth')
       .then((response) => {
         return true
       })

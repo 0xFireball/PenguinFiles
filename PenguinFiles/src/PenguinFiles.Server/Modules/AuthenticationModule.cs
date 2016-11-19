@@ -13,7 +13,7 @@ namespace PenguinFiles.Modules
     {
         public AuthenticationModule()
         {
-            Get("/checkauth", p =>
+            Post("/checkauth", p =>
             {
                 if (Context.CurrentUser != null)
                 {
