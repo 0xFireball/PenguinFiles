@@ -120,41 +120,34 @@ export default {
       console.log('decrypting file ' + id)
     },
     uploadFile: function () {
-      // hi
-      // this.$refs.fileInput.click()
-      this.uploadingFiles.push({
-        name: 'Fahrenheit 451',
-        kind: 'Book',
-        progress: 44,
-        id: 451
-      })
-      this.$refs.fileListTabs.changeTab('t-files')
+      this.$refs.fileInput.click()
     },
     cancelUpload: function (id) {
       // nothing yet
     }
   },
   mounted: function () {
-    // let vm = this
-    // vm.$refs.fileInput.addEventListener('change', function (ea) {
-    //   let file = vm.$refs.fileInput.files[0]
-    //   if (!file) return // upload canceled
-    //   let reader = new window.FileReader()
-    //   reader.onload = function (e) {
-    //     // process the file contents
-    //     // reader.result
-    //     // console.log(reader.result)
-    //     // change active tab and add uploading status
-    //     vm.uploadingFiles.push({
-    //       name: 'Random File #2',
-    //       kind: 'Book',
-    //       id: 494
-    //     })
-    //     console.log(vm.uploadingFiles)
-    //     vm.$refs.fileListTabs.changeTab('t-files')
-    //   }
-    //   reader.readAsDataURL(file)
-    // })
+    let vm = this
+    vm.$refs.fileInput.addEventListener('change', function (ea) {
+      let file = vm.$refs.fileInput.files[0]
+      if (!file) return // upload canceled
+      let reader = new window.FileReader()
+      reader.onload = function (e) {
+        // process the file contents
+        // reader.result
+        // console.log(reader.result)
+        // change active tab and add uploading status
+        vm.uploadingFiles.push({
+          name: 'Random File #2',
+          kind: 'Book',
+          progress: 0,
+          id: 494
+        })
+        console.log(vm.uploadingFiles)
+        vm.$refs.fileListTabs.changeTab('t-files')
+      }
+      reader.readAsDataURL(file)
+    })
   },
   components: {
     Panel
