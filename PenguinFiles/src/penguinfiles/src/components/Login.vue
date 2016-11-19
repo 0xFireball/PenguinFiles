@@ -1,6 +1,6 @@
 <template>
   <div class="login">
-    <md-tabs class="md-accent">
+    <md-tabs class="md-accent" ref="authOptionTabs">
       <md-tab id="t-login" md-label="Log In">
 
         <form v-on:submit.prevent="tryLogin">
@@ -123,7 +123,7 @@ export default {
         // TODO: process response
         if (response.status === 200) {
           // registration succeeded
-          vm.$router.push('/newuser')
+          this.$refs.authOptionTabs.changeTab('t-login')
         } else if (response.status === 403) {
           // unauthorized because of error
           let responseData = JSON.parse(response.data)

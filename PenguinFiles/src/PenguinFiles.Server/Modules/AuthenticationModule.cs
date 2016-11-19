@@ -1,5 +1,6 @@
 ﻿using Nancy;
 using Nancy.Authentication.Forms;
+using Nancy.Responses;
 using PenguinFiles.Models.Auth;
 using PenguinFiles.Models.Auth.Responses;
 using PenguinFiles.Services.Authentication;
@@ -63,8 +64,25 @@ namespace PenguinFiles.Modules
                     });
                 }
 
+                //Store account in database! First check for conflicts and stuff
+                //Creation should throw a security exception
+                try
+                {
+                    var userManagerConnection = new WebLoginUserManager();
+                    //This can take a bit of time, as crypto stuff has to be generated
+                    userManagerConnection.RegisterUser(signupParams);
+                }
+                catch
+                {
+                    // security error
+                    return Response.AsJson(new RegistrationErrorResponse
+                    {
+                        Message = "username is taken"
+                    });
+                }
+
                 //success!
-                return this.Login(matchingUser.Identifier, expiryTime);
+                return new Response().WithStatusCode(HttpStatusCode.OK); //success
             });
         }
     }
