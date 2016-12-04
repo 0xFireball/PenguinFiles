@@ -1,6 +1,4 @@
-﻿using LiteDB;
-using LiteDB.Platform;
-using Nancy;
+﻿using Nancy;
 using Nancy.Authentication.Forms;
 using Nancy.Bootstrapper;
 using Nancy.Conventions;
@@ -42,8 +40,8 @@ namespace PenguinFiles
 
             FormsAuthentication.Enable(pipelines, formsAuthConfiguration);
 
-            //Initialize database
-            LitePlatform.Initialize(new LitePlatformNetCore());
+            ////Initialize database
+            //LitePlatform.Initialize(new LitePlatformNetCore());
         }
     }
 }
