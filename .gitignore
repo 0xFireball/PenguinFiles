@@ -1,4 +1,7 @@
 
+# Project files
+*.lidb
+
 # Created by https://www.gitignore.io/api/visualstudio,intellij+iml
 
 ### Intellij+iml ###
